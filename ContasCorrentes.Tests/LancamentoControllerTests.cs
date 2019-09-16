@@ -24,9 +24,9 @@ namespace ContasCorrentes.Tests
                 Valor = 10
             };
 
-            var retorno = _lancamentoService.Lancamento(_mock);
+            string retorno = _lancamentoService.Lancamento(_mock);
 
-            Assert.Equal("OperaÁ„o efetuada com sucesso!", retorno);
+            Assert.Equal("Opera√ß√£o efetuada com sucesso!", retorno);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace ContasCorrentes.Tests
 
             string retorno = _lancamentoService.Lancamento(_mock);
 
-            Assert.Equal("Conta n„o possui saldo para realizar a transaÁ„o.", retorno);
+            Assert.Equal("Conta n√£o possui saldo para realizar a transa√ß√£o.", retorno);
         }
     }
 }
