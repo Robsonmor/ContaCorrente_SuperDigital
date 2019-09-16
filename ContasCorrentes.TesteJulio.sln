@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContasCorrentes.Domain", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContasCorrentes.Infrastructure", "ContasCorrentes.Infrastructure\ContasCorrentes.Infrastructure.csproj", "{0980A205-894F-4B34-963D-8A03FBBAC747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContasCorrentes.Tests", "ContasCorrentes.Tests\ContasCorrentes.Tests.csproj", "{5F81CD55-E6F9-482C-80B0-55876A096D12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContasCorrentes.Tests", "ContasCorrentes.Tests\ContasCorrentes.Tests.csproj", "{5F81CD55-E6F9-482C-80B0-55876A096D12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Perguntas", "Perguntas", "{8BAA16E3-5F09-4C5C-8877-45B1DB3F29D5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Users\Pasquali\Desktop\Teste Desenvovedor - JULIO MARRA.docx = ..\..\..\Users\Pasquali\Desktop\Teste Desenvovedor - JULIO MARRA.docx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
