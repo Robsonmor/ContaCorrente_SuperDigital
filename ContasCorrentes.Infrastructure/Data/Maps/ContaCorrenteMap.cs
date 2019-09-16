@@ -4,12 +4,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ContasCorrentes.Infrastructure.Data.Map
 {
-    public class ContaCorrenteMap : IEntityTypeConfiguration<ContaCorrente>
+    public class ContaCorrenteMap
     {
-        public void Configure(EntityTypeBuilder<ContaCorrente> builder)
+        public void Configure(ModelBuilder builder)
         {
-            builder.ToTable("ContaCorrente");
-            builder.HasKey(x => x.ContaCorrenteId);
+            builder.Entity<ContaCorrente>(etd =>
+            {
+                etd.ToTable("ContaCorrente");
+                etd.HasKey(c => c.ContaCorrenteId).HasName("ContaCorrenteId");
+                etd.Property(c => c.Agencia).HasColumnName("Agencia");
+                etd.Property(c => c.Conta).HasColumnName("Conta");
+                etd.Property(c => c.Saldo).HasColumnName("Saldo");
+            });
         }
     }
 }

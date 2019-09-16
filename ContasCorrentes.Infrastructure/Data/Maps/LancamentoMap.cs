@@ -7,13 +7,19 @@ using System.Text;
 
 namespace ContasCorrentes.Infrastructure.Data.Map
 {
-    public class LancamentoMap : IEntityTypeConfiguration<Lancamento>
+    public class LancamentoMap
     {
-        public void Configure(EntityTypeBuilder<Lancamento> builder)
+        public void Configure(ModelBuilder builder)
         {
-            builder.ToTable("Lancamento");
-            builder.HasKey(x => x.LancamentoId);
-            builder.HasOne(x => x.ContaCorrente).WithMany(x => x.Lancamentos);
+            builder.Entity<Lancamento>(etd =>
+            {
+                etd.ToTable("Lancamento");
+                etd.HasKey(c => c.LancamentoId).HasName("LancamentoId");
+                etd.HasKey(c => c.ContaCorrenteId).HasName("ContaCorrenteId");
+                etd.Property(c => c.ContaCorrente).HasColumnName("ContaCorrente");
+                etd.Property(c => c.TipoOperacao).HasColumnName("TipoOperacao");
+                etd.Property(c => c.Valor).HasColumnName("Valor");
+            });
         }
     }
 }

@@ -8,19 +8,23 @@ namespace ContasCorrentes.Infrastructure.Data
 {
     public class EFContext : DbContext
     {
-        public DbSet<ContaCorrente> ContaCorrentes { get; set; }
-        public DbSet<Lancamento> Lancamentos { get; set; }
-
-        public EFContext(DbContextOptions options) 
+        public EFContext()
+        { }
+        public EFContext(DbContextOptions<EFContext> options)
             : base(options)
         { }
 
+        public DbSet<ContaCorrente> ContaCorrentes { get; set; }
+        public DbSet<Lancamento> Lancamentos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ContaCorrenteMap());
-            modelBuilder.ApplyConfiguration(new LancamentoMap());
-
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.HasDefaultSchema("dbo");
+
+            modelBuilder.ForSqlServerUseIdentityColumns();
+            modelBuilder.HasDefaultSchema("ContasCorrentes");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
